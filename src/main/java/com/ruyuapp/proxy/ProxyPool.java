@@ -135,6 +135,7 @@ public class ProxyPool {
      * @return
      */
     public int getIdleNum() {
+
         return idleQueue.size();
     }
 
