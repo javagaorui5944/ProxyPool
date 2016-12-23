@@ -9,6 +9,7 @@ import com.ruyuapp.util.HttpStatus;
 
 import java.io.IOException;
 import java.net.*;
+import java.util.Timer;
 
 /**
  * @author <a href="mailto:letcheng@ruyuapp.com">letcheng</a>
@@ -27,7 +28,7 @@ public class Main {
         proxyPool.add("125.211.182.231",8998);
 //      proxyPool.add("36.42.32.126",8080);
 //      proxyPool.add("123.130.143.54",8998);
-
+//      Timer
         HttpProxy httpProxy  = proxyPool.borrow(); // 从 ProxyPool 中获取一个Proxy;
 
         URL url = null;
