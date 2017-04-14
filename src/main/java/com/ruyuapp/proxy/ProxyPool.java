@@ -54,6 +54,7 @@ public class ProxyPool {
     }
 
     public void add(String address, int port) {
+
         this.add(new HttpProxy(address, port));
     }
 

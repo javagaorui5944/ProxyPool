@@ -42,6 +42,7 @@ public class HttpProxy implements Delayed {
     }
 
     public HttpProxy(Proxy proxy) {
+
         this(proxy, 0, 0, DEFAULT_REUSE_TIME_INTERVAL);
     }
 

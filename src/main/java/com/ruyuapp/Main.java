@@ -6,6 +6,7 @@ package com.ruyuapp;
 import com.ruyuapp.proxy.HttpProxy;
 import com.ruyuapp.proxy.ProxyPool;
 import com.ruyuapp.util.HttpStatus;
+import com.sleepycat.je.utilint.Stat;
 
 import java.io.IOException;
 import java.net.*;
@@ -17,23 +18,26 @@ import java.util.Timer;
  */
 public class Main {
 
+    public static  ProxyPool proxyPool = new ProxyPool();
     /**
      * 为了阻塞主线程，不在junit中测试
      *
      * @param
      */
-    public static void main(String args[]) {
+    public static void main(String Ip,int Port) {
 
-        ProxyPool proxyPool = new ProxyPool();
-        proxyPool.add("125.211.182.231",8998);
+
+//      proxyPool.add("125.211.182.231",8998);
 //      proxyPool.add("36.42.32.126",8080);
 //      proxyPool.add("123.130.143.54",8998);
 //      Timer
-        HttpProxy httpProxy  = proxyPool.borrow(); // 从 ProxyPool 中获取一个Proxy;
 
+        System.err.println("proxyPool add():"+Ip+":"+Port);
+        HttpProxy httpProxy  = proxyPool.borrow(); // 从 ProxyPool 中获取一个Proxy;
+        System.err.println("proxyPool borrow():"+Ip+":"+Port);
         URL url = null;
         try {
-                url = new URL("");
+                url = new URL("http://www.kuaidaili.com/check/");
                 HttpURLConnection uc = (HttpURLConnection)url.openConnection(httpProxy.getProxy());
                 System.out.println("code:"+uc.getResponseCode());
                 uc.connect();
